@@ -45,7 +45,6 @@ export default class App extends Component {
   }
 
 CityChange = event=>{
-  console.log("heloo")
 this.setState({
   city : event.target.value
 })
