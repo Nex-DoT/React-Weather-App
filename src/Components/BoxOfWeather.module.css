@@ -20,6 +20,7 @@ body{
     padding: 20px;
     border-radius: 5px;
     backdrop-filter: blur(3px);
+    border: 2px solid white;
 
 }
 .box h1{
