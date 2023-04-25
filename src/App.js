@@ -20,6 +20,8 @@ export default class App extends Component {
           speed:"",
     }
   }
+
+  
   componentDidMount(){
     const {ApiKey , city} = this.state
     fetch("https://api.openweathermap.org/data/2.5/weather?q="+city+"&units=metric&appid="+ApiKey)
@@ -44,22 +46,28 @@ export default class App extends Component {
       })
   }
 
-CityChange = event=>{
-this.setState({
-  city : event.target.value
-})
-}
-Click = ()=>{
-  this.componentDidMount()
-}
-  render() {
-    return (
+    CityChange = event=>{
+    this.setState({
+      city : event.target.value
+    })
+ }
+
+
+    Click = ()=>{
+      this.componentDidMount()
+    }
+
+
+
+render() {
+  const {city,description,speed,icon,name,temp,humidity} = this.state;
+  return (
       <div>
         <div className={styles.inputBox}>
-          <input className={styles.input} type="text" value={this.state.city} onChange={this.CityChange} />
+          <input className={styles.input} type="text" value={city} onChange={this.CityChange} />
           <Icon size={22} className={styles.icon} icon={search} onClick={this.Click}/>
         </div>
-       <BoxOfWeather description={this.state.description} speed={this.state.speed} icon={this.state.icon}  name={this.state.name} temp={this.state.temp} humidity={this.state.humidity}  />
+          <BoxOfWeather description={description} speed={speed} icon={icon}  name={name} temp={temp} humidity={humidity}  />
       </div>
     )
   }
